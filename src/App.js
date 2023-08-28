@@ -18,7 +18,7 @@ const projectComponents = [Project1, Project2, Project3, Project4];
 const App = () => {
   return (
     <div style={{ width: '90vw', height: '90vh', padding: '4vh 4vw' }}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename="/my-portfolio">
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />

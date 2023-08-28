@@ -1,0 +1,106 @@
+body {
+  overflow-x: hidden;
+}
+
+.homepage {
+  text-align: center;
+  padding: 40px;
+}
+
+.homepage .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 20vw;
+  z-index: -1;
+  background-color: #d8f1f1;
+}
+
+.homepage__title {
+  margin-bottom: 20px;
+}
+
+.homepage__intro {
+  margin-bottom: 30px;
+}
+
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.homepage__subskills {
+  margin-left: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.homepage__subskills li {
+  margin: 5px 0;
+}
+
+.homepage__subskills img {
+  width: 24px;
+  height: 24px;
+}
+
+.blue-container {
+  margin-top: 5vw;
+  cursor: pointer;
+  text-align: center;
+}
+
+.blue-container h3 {
+  text-align: left;
+  padding-bottom: 2vw;
+}
+
+.hello {
+  text-align: left;
+  margin: 0;
+  padding-top: 4vw;
+  padding-bottom: 0.5vw;
+}
+
+.images-container {
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 0.8vw;
+  overflow: hidden;
+}
+
+.images-container img {
+  transition: width 0.3s ease, filter 0.3s ease;
+  width: 15%;
+  height: 24vw;
+  object-fit: cover;
+  overflow: hidden;
+  filter: brightness(50%);
+}
+
+.images-container .hovered {
+  width: 55%;
+  filter: brightness(100%);
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.hello{
+  font-size: 2.4vw;
+  font-weight: bold;
+}
+.homepage__intro{
+  text-align: left;
+}

@@ -1,0 +1,255 @@
+.project3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .f1, .f2 ,.f3{
+      position: absolute;
+  }
+  
+  .f1{
+      top: 140%;
+      width: 55%;
+  }
+  
+  .f2{
+      top: 160%;
+      width: 40%;
+  }
+  
+  .f3{
+      top: 180%;
+      width: 55%;
+  }
+  
+  .s1, .s2, .s3{
+      position: absolute;
+      width: 30%;
+      left: 20%;
+  }
+  
+  .s1{
+      top: 360%;
+  }
+  .s2{
+      top: 400%;
+  }
+  .s3{
+      top: 440%;
+  }
+  .step-text{
+      position: absolute;
+      left: 54%;
+  }
+  
+  .st1{
+      top: 376%;
+  }
+  .st2{
+      top: 412%;
+  }
+  .st3{
+      top: 452%;
+  }
+  
+  .header1{
+    top: 34%;
+    left: 10%;
+    background-color: rgb(115, 100, 205);
+    z-index: 99;
+  }
+  .header2{
+    top: 50%;
+    left: 10%;
+    background-color: rgb(255, 50, 125);
+    z-index: 99;
+  }
+  .header3{
+      top: 200%;
+      left: 40%;
+  }
+  
+  .header4{
+      top: 110%;
+  }
+  
+  .header5{
+      top: 330%;
+      left: 40%;
+  }
+  
+  .bg-image0{
+    position: absolute;
+    top: 8%;
+    width: 68%;
+    right: 0;
+    z-index: -2;
+  }
+  
+  .bg-image1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s;
+    transform: translateX(100%);
+  }
+  
+  .bg-image2 {
+    position: absolute;
+    z-index: -99;
+    top: 0;
+    right: 0;
+    width: 30%;
+    object-fit: contain;
+    transition: transform 1s;
+    transform: translateX(-100%);
+  }
+  
+  .bg-image3{
+    position: absolute;
+    top: 222%;
+    left: 20%;
+    width: 70%;
+    z-index: -99;
+  }
+  
+  .content-image{
+    position: absolute;
+    z-index: 99;
+    transition: top 0.8s ease, left 0.8s ease;
+  }
+  .top{
+      top: 52%;
+      left: 58%;
+      width: 20%;
+  }
+  .center {
+      top: 120%;
+      left: 60%;
+      width: 30%;
+  }
+  .bottom{
+      top: 220%;
+      left: 32%;
+      width: 36%;
+  }
+  .fade-in {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  
+  .fade-in .bg-image1 {
+    transform: translateX(0);
+  }
+  
+  .fade-in .bg-image2 {
+    transform: translateX(0);
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  .fade-out .bg-image1 {
+    transform: translateX(-100%);
+  }
+  
+  .fade-out .bg-image2 {
+    transform: translateX(100%);
+  }
+  
+  .text{
+    position: absolute;
+  }
+  
+  .p1{
+      padding-bottom: 10%;
+      width: 50%;
+  }
+  
+  .c1{
+      position: absolute;
+      top: 220%;
+      left: 74%;
+      width: 14%;   
+  }
+  
+  .c2{
+      position: absolute;
+      top: 284%;
+      left: 80%;
+      width: 14%;   
+  }
+  
+  .c3{
+      position: absolute;
+      top: 220%;
+      left: 10%;
+      width: 14%;   
+  }
+  
+  .c4{
+      position: absolute;
+      top: 280%;
+      left: 10%;
+      width: 14%;   
+  }
+  
+  .c5{
+      position: absolute;
+      top: 250%;
+      left: 80%;
+      width: 14%;   
+  }
+  
+  .image-text {
+      position: absolute;
+      background-color: #ffffff;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+  }
+    
+  .image-container2:hover .image-text {
+      opacity: 1;
+  }
+  
+  .image-container2:hover img {
+      filter: brightness(0.6);
+  }
+  
+  .t1{
+      top: 232%;
+      left: 75%;
+  }
+  
+  .t2{
+      top: 296%;
+      left: 81%;
+  }
+  
+  .t3{
+      top: 232%;
+      left: 11%;
+  }
+  
+  .t4{
+      top: 292%;
+      left: 11%;
+  }
+  
+  .t5{
+      top: 262%;
+      left: 81%;
+  }  

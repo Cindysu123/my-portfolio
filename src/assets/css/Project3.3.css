@@ -1,0 +1,112 @@
+.p3 .link-container {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20vh;
+  width: 100vw;
+  align-items: center;
+}
+
+.p3 .link-container.show {
+  opacity: 1;
+}
+
+.p3 .link-container.hide {
+  opacity: 0;
+}
+
+.p3 .bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 70vh;
+  background-color: #477ed2;
+  z-index: -1;
+}
+
+.p3 .introduction h1,
+.p3 .introduction h4,
+.p3 .introduction p{
+  color: white !important;
+}
+
+.p3 .padding {
+  height: 10vw;
+}
+
+.p3 .design-process{
+  align-items: center;
+}
+.design-process .wf {
+  display: block;
+  margin: 0 auto;
+  width: 64vw;
+}
+
+.p3 .introduction,
+.p3 .problem-definition,
+.p3 .design-process,
+.p3 .results-impact {
+  display: block;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+  line-height: 1.6;
+}
+
+.p3 .design-process {
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+.p3 .introduction h1,
+.p3 .problem-definition h2,
+.p3 .design-process h2,
+.p3 .results-impact h2 {
+  margin-bottom: 10px;
+}
+
+.p3 .introduction p,
+.p3 .problem-definition p,
+.p3 .design-process h3,
+.p3 .design-process p,
+.p3 .results-impact p {
+  margin-bottom: 20px;
+}
+
+.p3 .design-process h3 {
+  margin-top: 20px;
+}
+
+.p3 .navigate-previous-project.showBlock,
+.p3 .navigate-next-project.showBlock {
+  display: block !important;
+}
+
+.p3 .navigate-previous-project.hideBlock,
+.p3 .navigate-next-project.hideBlock {
+  display: none !important;
+}
+
+.p3 .navigate-next-project,
+.p3 .navigate-previous-project {
+  width: 50vw;
+}
+
+.p3 .navigate-next-project .text,
+.p3 .navigate-previous-project .text {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 44vw;
+  padding: 0.6vw;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.p3 .navigate-next-project .text:hover,
+.p3 .navigate-previous-project .text:hover {
+  transform: scale(1.04);
+}

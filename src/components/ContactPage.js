@@ -19,6 +19,8 @@ import java from '../assets/icon/java.png';
 import mongo from '../assets/icon/mongodb.png';
 import cpp from '../assets/icon/c++.png';
 
+import pdfLink from '../assets/others/Cindy_Resume.pdf';
+
 // Import CSSTransition for animations
 import { CSSTransition } from 'react-transition-group';
 
@@ -63,8 +65,14 @@ const ContactPage = () => {
           {/* Introduction text */}
           <p>Hello and welcome!✨</p> 
           <p>I'm Cindy, a designer who thrives on turning abstract concepts into concrete, functional works of art. Utilizing the latest technology, I specialize in crafting designs that captivate the eye while prioritizing user experience.  Let's embark on a creative journey together and build something amazing!</p>
+          <div className="downloadContainer">
+            <div className="downloadItem">
+              <a href={pdfLink} target="_blank" rel="noopener noreferrer" className="downloadButton">View My Resume</a>
+            </div>
+          </div>
         </div>
       </div>
+
       {/* Skills section with CSSTransition */}
       <CSSTransition
         in={true}

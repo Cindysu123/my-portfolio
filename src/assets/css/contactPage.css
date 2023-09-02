@@ -71,6 +71,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   background-color: white;
+  font-size: 1vw;
 }
 
 .buttons button:hover {
@@ -171,4 +172,19 @@
 .contactContainer a{
   color: #262146 !important;
   text-decoration: none;
+}
+
+.downloadButton {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 0.8vw 1.6vw;
+  margin: 1vw;
+  border-radius: 0.3vw;
+  text-decoration: none;
+  font-size: 1vw;
+}
+
+.downloadButton:hover {
+  background-color: #0056b3;
 }

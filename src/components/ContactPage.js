@@ -21,12 +21,7 @@ import cpp from '../assets/icon/c++.png';
 
 import pdfLink from '../assets/others/Cindy_Resume.pdf';
 
-// Import CSSTransition for animations
-import { CSSTransition } from 'react-transition-group';
-
 const ContactPage = () => {
-  // Initialize constants and state variables
-  const animationDuration = 500;
   const [activeSection, setActiveSection] = useState('design');
   const [clickedButton, setClickedButton] = useState(null);
 
@@ -34,6 +29,31 @@ const ContactPage = () => {
   const designRef = useRef(null);
   const modelingRef = useRef(null);
   const codingRef = useRef(null);
+
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-hover');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-hover');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const button = document.querySelector('.downloadButton');
+
+    button.addEventListener('mouseenter', handleHover);
+    button.addEventListener('mouseleave', handleUnhover);
+
+    return () => {
+
+      button.addEventListener('mouseenter', handleHover);
+      button.addEventListener('mouseleave', handleUnhover);
+    };
+  }, []);
 
   // Execute once on component mount
   useEffect(() => {
@@ -74,12 +94,6 @@ const ContactPage = () => {
       </div>
 
       {/* Skills section with CSSTransition */}
-      <CSSTransition
-        in={true}
-        appear={true}
-        timeout={animationDuration}
-        classNames="fade"
-      >
         <div className="homepage__skills">
           <h3>My Skills</h3>
           {/* Buttons to switch active skill section */}
@@ -138,14 +152,7 @@ const ContactPage = () => {
             </ul>
           )}
         </div>
-      </CSSTransition>
       {/* Contact information */}
-      <CSSTransition
-        in={true}
-        appear={true}
-        timeout={animationDuration}
-        classNames="fade"
-      >
         <div className="contactContainer">
           <div>Contact Info:</div>
           <div className="contactItem">
@@ -153,7 +160,6 @@ const ContactPage = () => {
             <a href="mailto:cindy_su_123@outlook.com" className="contactText">cindy_su_123@outlook.com</a>
           </div>
         </div>
-      </CSSTransition>
       {/* Padding for layout */}
       <div className='padding'></div>
     </div>

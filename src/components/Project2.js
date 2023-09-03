@@ -24,6 +24,35 @@ const Project2 = () => {
   const [showNextProjectLink, setShowNextProjectLink] = useState(false);
   const [blockNextProjectLink, setBlockNextProjectLink] = useState(false);
 
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-zoom');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-zoom');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const images = document.querySelectorAll('.small-image');
+  
+    images.forEach((image) => {
+      image.addEventListener('mouseenter', handleHover);
+      image.addEventListener('mouseleave', handleUnhover);
+    });
+  
+    return () => {
+      images.forEach((image) => {
+        image.removeEventListener('mouseenter', handleHover);
+        image.removeEventListener('mouseleave', handleUnhover);
+      });
+    };
+  }, []);  
+  
+
   // Function to open image modal
   const openModal = (index) => {
     setCurrentImageIndex(index);
@@ -131,13 +160,13 @@ const Project2 = () => {
       <div className="final-product">
         <h2>Final Design</h2>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <img src={image1} alt="Image 1" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(0)} />
-          <img src={image2} alt="Image 2" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(1)} />
-          <img src={image3} alt="Image 3" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(2)} />
+          <img src={image1} className='small-image' alt="Image 1" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(0)} />
+          <img src={image2} className='small-image' alt="Image 2" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(1)} />
+          <img src={image3} className='small-image' alt="Image 3" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(2)} />
         </div>
         <div style={{alignItems: 'center', padding: '10px' }}>
           <h3>Video Demo</h3>
-          <video width="100%" controls>
+          <video width="100%" controls className='video'>
             <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

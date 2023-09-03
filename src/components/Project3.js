@@ -27,6 +27,34 @@ const Project3 = () => {
   
   const images = [image1, image3, image6, image5, image4, image7];
 
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-zoom');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-zoom');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const images = document.querySelectorAll('.small-image');
+  
+    images.forEach((image) => {
+      image.addEventListener('mouseenter', handleHover);
+      image.addEventListener('mouseleave', handleUnhover);
+    });
+  
+    return () => {
+      images.forEach((image) => {
+        image.removeEventListener('mouseenter', handleHover);
+        image.removeEventListener('mouseleave', handleUnhover);
+      });
+    };
+  }, []); 
+
   const openModal = (imageIndex) => {
     setCurrentImageIndex(imageIndex);
   };
@@ -119,18 +147,21 @@ const Project3 = () => {
           <img
             src={image1}
             alt="Image 1"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(0)}
           />
           <img
             src={image3}
             alt="Image 3"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(1)}
           />
           <img
             src={image6}
             alt="Image 4"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(2)}
           />
@@ -139,18 +170,21 @@ const Project3 = () => {
           <img
             src={image5}
             alt="Image 5"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(3)}
           />
           <img
             src={image4}
             alt="Image 6"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(4)}
           />
           <img
             src={image7}
             alt="Image 7"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(5)}
           />

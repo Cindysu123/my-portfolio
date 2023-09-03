@@ -28,6 +28,51 @@ const Project4 = () => {
   const [blockNextProjectLink, setBlockNextProjectLink] = useState(false);
 
   useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-zoom');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-zoom');
+      cursor.classList.add('cursor-default');
+    };
+
+    const handleHoverB = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-hover');
+    };
+  
+    const handleUnhoverB = () => {
+      cursor.classList.remove('cursor-hover');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const images = document.querySelectorAll('.small-image');
+    const button = document.querySelector('.custom-button');
+  
+    images.forEach((images) => {
+      images.addEventListener('mouseenter', handleHover);
+      images.addEventListener('mouseleave', handleUnhover);
+    });
+
+    button.addEventListener('mouseenter', handleHoverB);
+    button.addEventListener('mouseleave', handleUnhoverB);
+
+    return () => {
+      images.forEach((images) => {
+        images.removeEventListener('mouseenter', handleHover);
+        images.removeEventListener('mouseleave', handleUnhover);
+      });
+
+      button.addEventListener('mouseenter', handleHoverB);
+      button.addEventListener('mouseleave', handleUnhoverB);
+    };
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -121,18 +166,21 @@ const Project4 = () => {
           <img
             src={image1}
             alt="Image 1"
+            className='small-image'
             style={{ width: '26%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(0)}
           />
           <img
             src={image2}
             alt="Image 2"
+            className='small-image'
             style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(1)}
           />
           <img
             src={demo}
             alt="Image 3"
+            className='small-image'
             style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(2)}
           />

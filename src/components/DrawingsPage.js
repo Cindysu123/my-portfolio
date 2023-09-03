@@ -24,6 +24,65 @@ const DrawingPage = () => {
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-zoom');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-zoom');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const images = document.querySelectorAll('.small-image');
+  
+    images.forEach((images) => {
+      images.addEventListener('mouseenter', handleHover);
+      images.addEventListener('mouseleave', handleUnhover);
+    });
+  
+    return () => {
+      images.forEach((images) => {
+        images.removeEventListener('mouseenter', handleHover);
+        images.removeEventListener('mouseleave', handleUnhover);
+      });
+    };
+  }, []);
+
+  const handleOutsideClick = (event) => {
+    // Array of elements that should not close the modal when clicked
+    const nonClosingElements = [
+      document.querySelector('.modal-image img'), // The image itself
+      document.querySelector('.prev-button'), // Left button
+      document.querySelector('.next-button'), // Right button
+      ...document.querySelectorAll('.thumbnail'), // Thumbnails
+    ];
+  
+    // Check if the clicked element is NOT in the nonClosingElements array
+    if (modalOpened && !nonClosingElements.includes(event.target)) {
+      closeModal();
+    }
+  };
+  
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.keyCode === 27) {
+        closeModal();
+      }
+    };
+  
+    document.addEventListener('keydown', handleEscapeKey);
+    document.addEventListener('click', handleOutsideClick);
+  
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [modalOpened]);   
+
   // Handle next image display in the modal
   const handleNextImage = () => {
     const nextIndex = (currentImageIndex + 1) % images.length;
@@ -39,7 +98,8 @@ const DrawingPage = () => {
   };
 
   // Open image modal
-  const openModal = (image) => {
+  const openModal = (event, image) => {
+    event.stopPropagation();
     setEnlargedImage(image);
     setModalOpened(true);
   };
@@ -51,6 +111,7 @@ const DrawingPage = () => {
       setEnlargedImage(null);
     }, 200);
   };
+  
 
   // Add event listeners for escape key and outside click to close modal
   useEffect(() => {
@@ -100,30 +161,36 @@ const DrawingPage = () => {
       <div className="gallery-grid">
         <div className="gallery-column">
           { [image1, image2, image3, image4].map((image, index) => (
-            <img className='small-image' src={image} alt={`Image ${index + 1}`} onClick={() => openModal(image)} onLoad={handleImageLoad} onMouseOver={handleImageHover} onMouseLeave={handleImageHoverEnd} />
+            <img className='small-image' src={image} alt={`Image ${index + 1}`} onClick={(event) => openModal(event, image)} onLoad={handleImageLoad} onMouseOver={handleImageHover} onMouseLeave={handleImageHoverEnd} />
           ))}
         </div>
         <div className="gallery-column">
           { [image5, image6, image7].map((image, index) => (
-            <img className='small-image' src={image} alt={`Image ${index + 5}`} onClick={() => openModal(image)} onLoad={handleImageLoad} onMouseOver={handleImageHover} onMouseLeave={handleImageHoverEnd} />
+            <img className='small-image' src={image} alt={`Image ${index + 5}`} onClick={(event) => openModal(event, image)} onLoad={handleImageLoad} onMouseOver={handleImageHover} onMouseLeave={handleImageHoverEnd} />
           ))}
         </div>
         <div className="gallery-column">
           { [image8, image9, image10].map((image, index) => (
-            <img className='small-image' src={image} alt={`Image ${index + 8}`} onClick={() => openModal(image)} onLoad={handleImageLoad} onMouseOver={handleImageHover} onMouseLeave={handleImageHoverEnd} />
+            <img className='small-image' src={image} alt={`Image ${index + 8}`} onClick={(event) => openModal(event, image)} onLoad={handleImageLoad} onMouseOver={handleImageHover} onMouseLeave={handleImageHoverEnd} />
           ))}
         </div>
       </div>
       {enlargedImage && (
         <div id="modal-overlay" className="modal-overlay">
-          <img src={left} alt="Previous" className="prev-button button" onClick={handlePrevImage} /> {/* Left button */}
-          <div className="close-button button" onClick={closeModal}>X</div> {/* Close button */}
+          <img 
+            src={left} 
+            alt="Previous" 
+            className="prev-button button" 
+            onClick={(event) => { event.stopPropagation(); handlePrevImage(); }} />
           <div className="modal-content">
-            <div className="modal-image" onClick={closeModal}>
-              <img src={enlargedImage} alt="Enlarged Image" />
-            </div>
+          <div className="modal-image" onClick={(event) => event.stopPropagation()}>
+            <img src={enlargedImage} alt="Enlarged Image" />
           </div>
-          <img src={right} alt="Next" className="next-button button" onClick={handleNextImage} /> {/* Right button */}
+          </div>
+          <img src={right} 
+            alt="Next" 
+            className="next-button button" 
+            onClick={(event) => { event.stopPropagation(); handleNextImage(); }} />
           <div className="pagination">
         {images.map((image, index) => (
           <img
@@ -131,7 +198,11 @@ const DrawingPage = () => {
             src={image}
             alt={`Thumbnail ${index + 1}`}
             className={`thumbnail ${currentImageIndex === index ? 'active-thumbnail' : ''}`}
-            onClick={() => { setCurrentImageIndex(index); setEnlargedImage(images[index]); }}
+            onClick={(event) => { 
+              event.stopPropagation(); 
+              setCurrentImageIndex(index); 
+              setEnlargedImage(images[index]); 
+            }}
           />
         ))}
       </div>

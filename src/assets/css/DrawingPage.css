@@ -24,7 +24,6 @@
 
 .small-image {
   padding: 10px;
-  cursor: pointer;
   width: 90%;
 }
 
@@ -40,7 +39,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 998;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +49,6 @@
 }
 
 .button {
-  cursor: pointer;
   transition: transform 0.3s ease;
   transform: scale(0.6);
 }
@@ -67,11 +65,11 @@
 }
 
 .prev-button {
-  left: 0;
+  left: 2vw;
 }
 
 .next-button {
-  right: 0;
+  right: 2vw;
 }
 
 .modal-content {
@@ -99,7 +97,6 @@
 }
 
 .modal-image {
-  cursor: pointer;
   flex: 1;
 }
 
@@ -131,7 +128,6 @@
 
 .thumbnail {
   width: 50px;
-  cursor: pointer;
   margin: 0 5px;
   opacity: 0.6;
   transition: all 0.3s;

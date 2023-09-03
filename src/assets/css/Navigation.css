@@ -37,20 +37,5 @@
 
 .active {
   font-weight: bold;
-  color: white;
   transition: 0.3s ease-in-out;
-}
-
-.blue-rectangle {
-  position: absolute;
-  top: calc(100%);
-  left: 0;
-  width: 100%;
-  height: 30px;
-  background-color: #262146;
-  z-index: 0;
-  margin-top: -35px;
-  transition: left 0.3s ease-in-out;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

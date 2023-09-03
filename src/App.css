@@ -1,9 +1,5 @@
 * {
-  cursor: none;
-}
-
-.App {
-  text-align: center;
+  cursor: none !important;
 }
 
 body{

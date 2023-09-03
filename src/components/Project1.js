@@ -30,6 +30,51 @@ const Project1 = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-zoom');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-zoom');
+      cursor.classList.add('cursor-default');
+    };
+
+    const handleHoverB = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-hover');
+    };
+  
+    const handleUnhoverB = () => {
+      cursor.classList.remove('cursor-hover');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const images = document.querySelectorAll('.small-image');
+    const button = document.querySelector('.custom-button');
+  
+    images.forEach((images) => {
+      images.addEventListener('mouseenter', handleHover);
+      images.addEventListener('mouseleave', handleUnhover);
+    });
+
+    button.addEventListener('mouseenter', handleHoverB);
+    button.addEventListener('mouseleave', handleUnhoverB);
+
+    return () => {
+      images.forEach((images) => {
+        images.removeEventListener('mouseenter', handleHover);
+        images.removeEventListener('mouseleave', handleUnhover);
+      });
+
+      button.addEventListener('mouseenter', handleHoverB);
+      button.addEventListener('mouseleave', handleUnhoverB);
+    };
+  }, []);
+
   // Event listener for scroll position to show/hide the 'Next Project' link
   useEffect(() => {
     const handleScroll = () => {
@@ -135,6 +180,7 @@ const Project1 = () => {
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <img
             src={image1}
+            className='small-image'
             alt="Image 1"
             style={{ width: '34%', padding: '18px', objectFit: 'contain', cursor: 'pointer' }}
             onClick={() => openModal(0)}
@@ -142,12 +188,14 @@ const Project1 = () => {
           <div style={{ display: 'flex', padding: '18px', flexDirection: 'column', alignItems: 'center', width: '32%'}}>
             <img
               src={image2}
+              className='small-image'
               alt="Image 2"
               style={{ width: '100%', paddingBottom: '5px', objectFit: 'contain', cursor: 'pointer' }}
               onClick={() => openModal(1)}
             />
             <img
               src={image5}
+              className='small-image'
               alt="Image 5"
               style={{ width: '100%', objectFit: 'contain', cursor: 'pointer' }}
               onClick={() => openModal(2)}
@@ -157,6 +205,7 @@ const Project1 = () => {
             <div>
               <img
                 src={image3}
+                className='small-image'
                 alt="Image 3"
                 style={{ width: '100%', paddingBottom: '5px', objectFit: 'contain', cursor: 'pointer' }}
                 onClick={() => openModal(3)}
@@ -165,6 +214,7 @@ const Project1 = () => {
             <div>
               <img
                 src={image4}
+                className='small-image'
                 alt="Image 4"
                 style={{ width: '100%', objectFit: 'contain', cursor: 'pointer' }}
                 onClick={() => openModal(4)}
@@ -202,7 +252,7 @@ const Project1 = () => {
             <img
               src={images[currentImageIndex]}
               alt="Enlarged Image"
-              style={{ width: '100%', objectFit: 'contain' }}
+              style={{ width: '80vw', objectFit: 'contain' }}
             />
           </div>
           <img

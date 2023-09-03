@@ -3,21 +3,34 @@ import { NavLink, useLocation } from 'react-router-dom';
 import '../assets/css/Navigation.css';
 
 const Navigation = () => {
-  const [activeLinkPosition, setActiveLinkPosition] = useState({ left: 0, width: 0 });
-  const location = useLocation();
 
   useEffect(() => {
-    const activeLink = document.querySelector('.navigation__link.active');
-    if (activeLink) {
-      const { offsetLeft, offsetWidth } = activeLink;
-      setActiveLinkPosition({ left: offsetLeft, width: offsetWidth+40 });
-    }
-  }, [location]);
-
-  const blueRectangleStyle = {
-    left: activeLinkPosition.left,
-    width: activeLinkPosition.width
-  };
+    const cursor = document.querySelector('.cursor');
+  
+    const handleHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-hover');
+    };
+  
+    const handleUnhover = () => {
+      cursor.classList.remove('cursor-hover');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const links = document.querySelectorAll('.navigation__link');
+  
+    links.forEach((links) => {
+      links.addEventListener('mouseenter', handleHover);
+      links.addEventListener('mouseleave', handleUnhover);
+    });
+  
+    return () => {
+      links.forEach((links) => {
+        links.removeEventListener('mouseenter', handleHover);
+        links.removeEventListener('mouseleave', handleUnhover);
+      });
+    };
+  }, []);
 
   return (
     <nav className="navigation">
@@ -43,7 +56,6 @@ const Navigation = () => {
           </NavLink>
         </li>
       </ul>
-      <div className="blue-rectangle" style={blueRectangleStyle}></div>
     </nav>
   );
 };

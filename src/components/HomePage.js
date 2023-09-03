@@ -67,12 +67,12 @@ const HomePage = () => {
         unmountOnExit
       >
         <h1 className="homepage__intro">
-          I'm Cindy, a Product Designer dedicated to crafting engaging and meaningful experiences for users.
+          I'm Cindy! I'm a designer passionate about integrating design with technology to craft impactful solutions to real-world challenges.
         </h1>
       </CSSTransition>
 
       {/* Blue Container Animation */}
-      <CSSTransition
+      {/* <CSSTransition
         in={showBlueContainer}
         timeout={animationDuration}
         classNames="fade"
@@ -87,7 +87,7 @@ const HomePage = () => {
             <img src={img4} alt="Image 4" onMouseOver={handleMouseOver} onClick={() => handleImageClick(3)}/>
           </div>
         </div>
-      </CSSTransition>
+      </CSSTransition> */}
     </div>
   );
 };

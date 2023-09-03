@@ -4,25 +4,10 @@ body {
 
 .homepage {
   text-align: center;
-  padding: 40px;
-}
-
-.homepage .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 20vw;
-  z-index: -1;
-  background-color: #d8f1f1;
 }
 
 .homepage__title {
   margin-bottom: 20px;
-}
-
-.homepage__intro {
-  margin-bottom: 30px;
 }
 
 .fade-appear {
@@ -32,6 +17,29 @@ body {
 .fade-appear-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
+}
+
+.homepage {
+  background: linear-gradient(-45deg, #f1e3e2, #b4d8f1, #eed7f3, #f1e3e2, #a9bfff, #f9ffd3);
+  background-size: 600% 600%;
+  animation: gradientChange 15s ease infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+@keyframes gradientChange {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .homepage__subskills {
@@ -63,8 +71,6 @@ body {
 .hello {
   text-align: left;
   margin: 0;
-  padding-top: 4vw;
-  padding-bottom: 0.5vw;
 }
 
 .images-container {
@@ -103,4 +109,12 @@ body {
 }
 .homepage__intro{
   text-align: left;
+}
+
+.intro{
+  margin-left: 16vw;
+  margin-top: 12vw;
+  width: 68vw;
+  padding: 3vw;
+  border-radius: 1.4vw;
 }

@@ -1,3 +1,7 @@
+* {
+  cursor: none;
+}
+
 .App {
   text-align: center;
 }
@@ -79,4 +83,32 @@ p {
 li {
   font-size: 1.2vw;
   color: #262146;
+}
+
+.cursor {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 2.2vw;
+  width: 2.2vw;
+  position: fixed;
+  pointer-events: none;
+  transition: width 0.1s, height 0.1s;
+  z-index: 999;
+}
+
+.cursor-clicked {
+  width: 2.4vw;
+  height: 2.4vw;
+}
+
+.cursor-default {
+  background-image: url('./assets/icon/cursor1.svg');
+}
+
+.cursor-hover {
+  background-image: url('./assets/icon/Pointer.svg');
+}
+
+.cursor-zoom {
+  background-image: url('./assets/icon/zoom.svg');
 }

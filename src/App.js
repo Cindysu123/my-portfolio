@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom';
 import Navigation from './components/Navigation';
@@ -28,17 +28,47 @@ const RouteHandler = () => {
     }
   }, [navigate]);
 
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    const mouseMove = e => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const mouseDown = () => {
+      setIsClicked(true);
+    };
+
+    const mouseUp = () => {
+      setIsClicked(false);
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+    window.addEventListener("mousedown", mouseDown);
+    window.addEventListener("mouseup", mouseUp);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+      window.removeEventListener("mousedown", mouseDown);
+      window.removeEventListener("mouseup", mouseUp);
+    };
+  }, []);
+
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      {projectComponents.map((Project, index) => (
-        <Route path={`/ui-design/${index + 1}`} element={<Project />} key={index} />
-      ))}
-      <Route path="/ui-design" element={<UIDesignPage />} />
-      <Route path="/product-design" element={<ProductDesignPage />} />
-      <Route path="/drawings" element={<DrawingsPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-    </Routes>
+    <div className="App">
+      <div className={`cursor cursor-default ${isClicked ? 'cursor-clicked' : ''}`} style={{ left: mousePosition.x, top: mousePosition.y }}/>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {projectComponents.map((Project, index) => (
+          <Route path={`/ui-design/${index + 1}`} element={<Project />} key={index} />
+        ))}
+        <Route path="/ui-design" element={<UIDesignPage />} />
+        <Route path="/product-design" element={<ProductDesignPage />} />
+        <Route path="/drawings" element={<DrawingsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </div>
   );
 };
 

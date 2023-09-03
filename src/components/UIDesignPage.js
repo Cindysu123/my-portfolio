@@ -61,6 +61,34 @@ const UIDesign = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+  
+    const handleCardHover = () => {
+      cursor.classList.remove('cursor-default');
+      cursor.classList.add('cursor-hover');
+    };
+  
+    const handleCardUnhover = () => {
+      cursor.classList.remove('cursor-hover');
+      cursor.classList.add('cursor-default');
+    };
+  
+    const cards = document.querySelectorAll('.ui-design-card');
+  
+    cards.forEach((card) => {
+      card.addEventListener('mouseenter', handleCardHover);
+      card.addEventListener('mouseleave', handleCardUnhover);
+    });
+  
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener('mouseenter', handleCardHover);
+        card.removeEventListener('mouseleave', handleCardUnhover);
+      });
+    };
+  }, []);
+  
   return (
     <div className="ui-design-container">
       <div className="ui-design-row">

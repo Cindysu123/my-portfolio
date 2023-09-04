@@ -23,7 +23,10 @@ import pdfLink from '../assets/others/Cindy_Resume.pdf';
 
 const ContactPage = () => {
   const [activeSection, setActiveSection] = useState('design');
+  const [activeSubSection, setActiveSubSection] = useState(null);
   const [clickedButton, setClickedButton] = useState(null);
+  const [showSubSkills, setShowSubSkills] = useState(false);
+  const [dropdownSection, setDropdownSection] = useState(null);
 
   // Initialize refs for buttons
   const designRef = useRef(null);
@@ -63,6 +66,7 @@ const ContactPage = () => {
   // Handle button clicks to switch active section and styles
   const handleButtonClick = (section, ref) => {
     setActiveSection(section);
+    setActiveSubSection(prevState => prevState === section ? null : section);  // Toggle the active sub-section
     setClickedButton(ref.current);
   };
 
@@ -94,10 +98,9 @@ const ContactPage = () => {
       </div>
 
       {/* Skills section with CSSTransition */}
-        <div className="homepage__skills">
-          <h3>My Skills</h3>
-          {/* Buttons to switch active skill section */}
-          <div className="buttons">
+      <div className="homepage__skills">
+        <h3>My Skills</h3>
+        <div className="buttons">
             <button
               ref={designRef}
               onClick={() => handleButtonClick('design', designRef)}
@@ -105,6 +108,13 @@ const ContactPage = () => {
             >
               UI/UX Design
             </button>
+            {activeSubSection === 'design' && (
+              <ul className='skill_list'>
+                <li><img src={figma} alt="Figma" /> Figma</li>
+                <li><img src={ps} alt="Adobe Photoshop" /> Adobe Photoshop</li>
+                <li><img src={ai} alt="Adobe Illustrator" /> Adobe Illustrator</li>
+              </ul>
+            )}
             <button
               ref={modelingRef}
               onClick={() => handleButtonClick('modeling', modelingRef)}
@@ -112,6 +122,13 @@ const ContactPage = () => {
             >
               3D Modeling
             </button>
+            {/* Design subskills */}
+            {activeSubSection === 'modeling' && (
+              <ul className='skill_list'>
+                <li><img src={blender} alt="Blender" /> Blender</li>
+                <li><img src={c4d} alt="C4D" /> C4D</li>
+              </ul>
+            )}
             <button
               ref={codingRef}
               onClick={() => handleButtonClick('coding', codingRef)}
@@ -119,14 +136,24 @@ const ContactPage = () => {
             >
               Coding
             </button>
-          </div>
+            {activeSubSection === 'coding' && (
+            <ul className='skill_list'>
+              <li><img className="skill-icon" src={js} alt="JavaScript" /> JavaScript</li>
+              <li><img className="skill-icon" src={html} alt="HTML/CSS" /> HTML/CSS</li>
+              <li><img className="skill-icon" src={sql} alt="MySQL" /> MySQL</li>
+              <li><img className="skill-icon" src={mongo} alt="MongoDB" /> MongoDB</li>
+              <li><img className="skill-icon" src={python} alt="Python" /> Python</li>
+              <li><img className="skill-icon" src={java} alt="Java" /> Java</li>
+              <li><img className="skill-icon" src={cpp} alt="C++" /> C++</li>
+            </ul>
+          )}
+        </div>
           {/* Highlighted line under active button */}
           <div className="line" style={lineStyle}></div>
 
-          {/* Display subskills based on active section */}
           {/* Design subskills */}
           {activeSection === 'design' && (
-            <ul className="homepage__subskills">
+            <ul className={`homepage__subskills ${showSubSkills ? 'active' : ''}`}>
               <li><img src={figma} alt="Figma" /> Figma</li>
               <li><img src={ps} alt="Adobe Photoshop" /> Adobe Photoshop</li>
               <li><img src={ai} alt="Adobe Illustrator" /> Adobe Illustrator</li>
@@ -134,14 +161,14 @@ const ContactPage = () => {
           )}
           {/* Modeling subskills */}
           {activeSection === 'modeling' && (
-            <ul className="homepage__subskills">
+            <ul className={`homepage__subskills ${showSubSkills ? 'active' : ''}`}>
               <li><img src={blender} alt="Blender" /> Blender</li>
               <li><img src={c4d} alt="C4D" /> C4D</li>
             </ul>
           )}
           {/* Coding subskills */}
           {activeSection === 'coding' && (
-            <ul className="homepage__subskills">
+            <ul className={`homepage__subskills ${showSubSkills ? 'active' : ''}`}>
               <li><img className="skill-icon" src={js} alt="JavaScript" /> JavaScript</li>
               <li><img className="skill-icon" src={html} alt="HTML/CSS" /> HTML/CSS</li>
               <li><img className="skill-icon" src={sql} alt="MySQL" /> MySQL</li>

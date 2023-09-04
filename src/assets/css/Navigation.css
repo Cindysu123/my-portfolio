@@ -40,7 +40,7 @@
 }
 
 .active {
-  font-weight: bold;
+  font-weight: bolder;
   transition: 0.3s ease-in-out;
 }
 

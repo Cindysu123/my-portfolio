@@ -1,5 +1,5 @@
 // Import required modules and assets
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../assets/css/Home.css';
 
 // Define HomePage component

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import '../assets/css/Navigation.css';
 
 const Navigation = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const cursor = document.querySelector('.cursor');
@@ -32,26 +33,35 @@ const Navigation = () => {
     };
   }, []);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {  // New function to close the menu
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className="navigation">
-      <ul className="navigation__list">
+    <nav className={`navigation ${menuOpen ? 'open' : ''}`}>
+      <button className="menu-button" onClick={toggleMenu}>☰</button>  {/* New button */}
+      <ul className={`navigation__list ${menuOpen ? 'open' : ''}`}>
         <li className="navigation__item">
-          <NavLink to="/" className="navigation__link" exact="true" activeclassname="active">
+          <NavLink to="/" className="navigation__link" exact="true" activeclassname="active" onClick={closeMenu}>
             Home
           </NavLink>
         </li>
         <li className="navigation__item">
-          <NavLink to="/ui-design" className="navigation__link" activeclassname="active">
+          <NavLink to="/ui-design" className="navigation__link" activeclassname="active" onClick={closeMenu}>
             Design Project
           </NavLink>
         </li>
         <li className="navigation__item">
-          <NavLink to="/drawings" className="navigation__link" activeclassname="active">
+          <NavLink to="/drawings" className="navigation__link" activeclassname="active" onClick={closeMenu}>
             Gallery
           </NavLink>
         </li>
         <li className="navigation__item">
-          <NavLink to="/contact" className="navigation__link" activeclassname="active">
+          <NavLink to="/contact" className="navigation__link" activeclassname="active" onClick={closeMenu}>
             About
           </NavLink>
         </li>

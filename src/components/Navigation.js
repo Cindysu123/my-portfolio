@@ -20,15 +20,15 @@ const Navigation = () => {
   
     const links = document.querySelectorAll('.navigation__link');
   
-    links.forEach((links) => {
-      links.addEventListener('mouseenter', handleHover);
-      links.addEventListener('mouseleave', handleUnhover);
+    links.forEach((link) => {
+      link.addEventListener('mouseenter', handleHover);
+      link.addEventListener('mouseleave', handleUnhover);
     });
   
     return () => {
-      links.forEach((links) => {
-        links.removeEventListener('mouseenter', handleHover);
-        links.removeEventListener('mouseleave', handleUnhover);
+      links.forEach((link) => {
+        link.removeEventListener('mouseenter', handleHover);
+        link.removeEventListener('mouseleave', handleUnhover);
       });
     };
   }, []);
@@ -37,13 +37,15 @@ const Navigation = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const closeMenu = () => {  // New function to close the menu
+  const closeMenu = () => {
     setMenuOpen(false);
   };
 
   return (
     <nav className={`navigation ${menuOpen ? 'open' : ''}`}>
-      <button className="menu-button" onClick={toggleMenu}>☰</button>  {/* New button */}
+      <button className="menu-button" onClick={toggleMenu}>
+        {menuOpen ? 'X' : '☰'}  {/* Update this line */}
+      </button>
       <ul className={`navigation__list ${menuOpen ? 'open' : ''}`}>
         <li className="navigation__item">
           <NavLink to="/" className="navigation__link" exact="true" activeclassname="active" onClick={closeMenu}>

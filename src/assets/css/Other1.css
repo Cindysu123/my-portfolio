@@ -325,11 +325,14 @@
     }
 
     .Other1 .designProcess{
-      top: 250vh;
+      display: block;
+      position: relative;
+      top: 0;
     }
 
     /* Show slides for mobile */
     .mobile-slides {
+      position: relative;
       display: block;
     }
 

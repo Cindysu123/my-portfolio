@@ -202,3 +202,34 @@
     display: none; /* Hide close button on desktop */
   }
 }
+
+.modal-image {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.modal-image.left img {
+  animation: swipeLeft 0.3s ease forwards;
+}
+
+.modal-image.right img {
+  animation: swipeRight 0.3s ease forwards;
+}
+
+@keyframes swipeLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

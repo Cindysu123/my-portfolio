@@ -23,6 +23,11 @@ const DrawingPage = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [swipeDirection, setSwipeDirection] = useState(null);
+  let yDown = null;
+  let touchStartTime = null;
+  const [touchPoints, setTouchPoints] = useState(1);
+
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   useEffect(() => {
@@ -44,18 +49,20 @@ const DrawingPage = () => {
   };
 
   const handleTouchStart = (evt) => {
+    setTouchPoints(evt.touches.length);
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
   };
-
+  
   const handleTouchMove = (evt) => {
-    if (!xDown) {
+    if (touchPoints > 1 || !xDown) {
+      // More than one finger touched or starting point was not set, could be a zoom action
       return;
     }
-
+  
     const xUp = evt.touches[0].clientX;
     const xDiff = xDown - xUp;
-
+  
     if (Math.abs(xDiff) > 50) {
       if (xDiff > 0) {
         handleNextImage();
@@ -136,14 +143,18 @@ const DrawingPage = () => {
     const nextIndex = (currentImageIndex + 1) % images.length;
     setCurrentImageIndex(nextIndex);
     setEnlargedImage(images[nextIndex]);
-  };
+    setSwipeDirection('left');
+    setTimeout(() => setSwipeDirection(null), 300); // Reset after animation
+  };  
 
   // Handle previous image display in the modal
   const handlePrevImage = () => {
     const prevIndex = (currentImageIndex - 1 + images.length) % images.length;
     setCurrentImageIndex(prevIndex);
     setEnlargedImage(images[prevIndex]);
-  };
+    setSwipeDirection('right');
+    setTimeout(() => setSwipeDirection(null), 300); // Reset after animation
+  };  
 
   // Open image modal
   const openModal = (event, image) => {
@@ -238,7 +249,7 @@ const DrawingPage = () => {
             className="prev-button button" 
             onClick={(event) => { event.stopPropagation(); handlePrevImage(); }} />
           <div className="modal-content">
-          <div className="modal-image" onClick={(event) => event.stopPropagation()}>
+          <div className={`modal-image ${swipeDirection}`} onClick={(event) => event.stopPropagation()}>
             <img src={enlargedImage} alt="Enlarged Image" />
           </div>
           </div>

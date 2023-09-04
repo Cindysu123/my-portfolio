@@ -292,7 +292,8 @@
   /* Adjust download button */
   .downloadButton {
     font-size: 4vw;
-    padding: 1vw 2vw;
+    padding: 2vw 4vw;
+    border-radius: 1vw;
   }
 
   /* Make the buttons stack vertically */

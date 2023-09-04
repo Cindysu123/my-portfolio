@@ -54,7 +54,12 @@ const Navigation = () => {
         </li>
         <li className="navigation__item">
           <NavLink to="/ui-design" className="navigation__link" activeclassname="active" onClick={closeMenu}>
-            Design Project
+            UI Design Project
+          </NavLink>
+        </li>
+        <li className="navigation__item">
+          <NavLink to="/product-design" className="navigation__link" activeclassname="active" onClick={closeMenu}>
+            Other Project
           </NavLink>
         </li>
         <li className="navigation__item">

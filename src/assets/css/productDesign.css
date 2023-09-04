@@ -1,0 +1,74 @@
+.pd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6vw;
+  }
+
+  .pd .card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pd .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pd .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .pd .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    padding: 2vw 4vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 1vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pd .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .pd .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .pd .card-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .pd .card-image {
+    width: 24vw;
+    max-width: 200px;
+    border-radius: 8px;
+  }
+
+  /* Mobile version */
+@media only screen and (max-width: 768px) {
+.card {
+    flex-direction: column; /* Stack the image and text vertically */
+    align-items: center; /* Center the content */
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-image {
+    width: 80vw !important; /* Make the image take up most of the viewport width */
+    max-width: none; /* Remove the max-width */
+}
+}
+  

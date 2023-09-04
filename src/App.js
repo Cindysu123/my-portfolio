@@ -12,9 +12,13 @@ import Project2 from './components/Project2';
 import Project3 from './components/Project3';
 import Project4 from './components/Project4';
 
+import OProject1 from './components/Other1';
+
 import './App.css';
 
 const projectComponents = [Project1, Project2, Project3, Project4];
+
+const OprojectComponents = [OProject1];
 
 const RouteHandler = () => {
   const navigate = useNavigate();
@@ -65,6 +69,9 @@ const RouteHandler = () => {
         ))}
         <Route path="/ui-design" element={<UIDesignPage />} />
         <Route path="/product-design" element={<ProductDesignPage />} />
+        {OprojectComponents.map((OProject, index) => (
+          <Route path={`/product-design/${index + 1}`} element={<OProject />} key={index} />
+        ))}
         <Route path="/drawings" element={<DrawingsPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

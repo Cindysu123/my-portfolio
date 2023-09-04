@@ -225,6 +225,13 @@ const DrawingPage = () => {
       </div>
       {enlargedImage && (
         <div id="modal-overlay" className="modal-overlay">
+          {isMobile && (
+            <button 
+              className="close-button" 
+              onClick={closeModal}>
+              Close
+            </button>
+          )}
           <img 
             src={left} 
             alt="Previous" 

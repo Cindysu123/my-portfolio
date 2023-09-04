@@ -177,4 +177,28 @@
   .gallery-description{
     display: none;
   }
+
+  .close-button {
+    position: fixed;
+    top: 10vh;
+    right: 10px;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 2vw;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s;
+  }
+
+  .close-button:hover{
+    background-color: #a0a0a0;
+  }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+  .close-button {
+    display: none; /* Hide close button on desktop */
+  }
 }

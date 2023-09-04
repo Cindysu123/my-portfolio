@@ -11,6 +11,10 @@
   z-index: 99;
 }
 
+.menu-button{
+  display: none;
+}
+
 .navigation__list {
   list-style-type: none;
   display: flex;

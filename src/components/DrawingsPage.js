@@ -24,6 +24,48 @@ const DrawingPage = () => {
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  let xDown = null;
+
+  const getTouches = (evt) => {
+    return evt.touches || evt.originalEvent.touches;
+  };
+
+  const handleTouchStart = (evt) => {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+  };
+
+  const handleTouchMove = (evt) => {
+    if (!xDown) {
+      return;
+    }
+
+    const xUp = evt.touches[0].clientX;
+    const xDiff = xDown - xUp;
+
+    if (Math.abs(xDiff) > 50) {
+      if (xDiff > 0) {
+        handleNextImage();
+      } else {
+        handlePrevImage();
+      }
+      xDown = null;
+    }
+  };
+
   useEffect(() => {
     const cursor = document.querySelector('.cursor');
   
@@ -43,14 +85,20 @@ const DrawingPage = () => {
       images.addEventListener('mouseenter', handleHover);
       images.addEventListener('mouseleave', handleUnhover);
     });
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
   
     return () => {
       images.forEach((images) => {
         images.removeEventListener('mouseenter', handleHover);
         images.removeEventListener('mouseleave', handleUnhover);
       });
+
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchmove', handleTouchMove);
     };
-  }, []);
+  }, [modalOpened, currentImageIndex, images]);
 
   const handleOutsideClick = (event) => {
     // Array of elements that should not close the modal when clicked
@@ -192,20 +240,32 @@ const DrawingPage = () => {
             className="next-button button" 
             onClick={(event) => { event.stopPropagation(); handleNextImage(); }} />
           <div className="pagination">
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Thumbnail ${index + 1}`}
-            className={`thumbnail ${currentImageIndex === index ? 'active-thumbnail' : ''}`}
-            onClick={(event) => { 
-              event.stopPropagation(); 
-              setCurrentImageIndex(index); 
-              setEnlargedImage(images[index]); 
-            }}
-          />
-        ))}
-      </div>
+            {images.map((image, index) => (
+              isMobile ? (
+                <div
+                  key={index}
+                  className={`dot-thumbnail ${currentImageIndex === index ? 'active-thumbnail' : ''}`}
+                  onClick={(event) => { 
+                    event.stopPropagation(); 
+                    setCurrentImageIndex(index); 
+                    setEnlargedImage(images[index]); 
+                  }}
+                ></div>
+              ) : (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Thumbnail ${index + 1}`}
+                  className={`thumbnail ${currentImageIndex === index ? 'active-thumbnail' : ''}`}
+                  onClick={(event) => { 
+                    event.stopPropagation(); 
+                    setCurrentImageIndex(index); 
+                    setEnlargedImage(images[index]); 
+                  }}
+                />
+              )
+            ))}
+          </div>
     </div>
   )}
     </div>

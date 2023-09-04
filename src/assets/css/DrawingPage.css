@@ -142,3 +142,39 @@
   opacity: 1;
   scale: 1.2;
 }
+
+@media (max-width: 768px) {
+  .prev-button, .next-button {
+    display: none;
+  }
+
+  .gallery-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-column {
+    width: 100%;
+  }
+
+  .dot-thumbnail {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    background-color: gray;
+    margin: 1vw;
+    margin-bottom: 16vh;
+  }
+
+  .dot-thumbnail.active-thumbnail {
+    background-color: white;
+  }
+
+  .gallery-title{
+    font-size: 6vw;
+  }
+
+  .gallery-description{
+    display: none;
+  }
+}

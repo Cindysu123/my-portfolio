@@ -108,3 +108,9 @@ li {
 .cursor-zoom {
   background-image: url('./assets/icon/zoom.svg');
 }
+
+@media only screen and (max-width: 768px) {
+  .cursor{
+    display: none;
+  }
+}

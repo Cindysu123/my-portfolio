@@ -85,14 +85,21 @@ body {
     flex-direction: column;
     align-items: center;
     width: 90vw;
-    height: auto; /* auto height to accommodate stacked content and image */
+    height: 76vh;
     padding: 3vw;
+    padding-bottom: 3vw;
+  }
+
+  .ui-design-content{
+    margin-top: 22vh;
+  }
+  .ui-design-image{
+    margin-bottom: 22vh;
   }
 
   .ui-design-content,
   .ui-design-image {
-    width: 80%; /* adjust as needed */
-    margin-bottom: 2vw; /* space between content and image */
+    width: 94%;
   }
 
   .ui-design-title {

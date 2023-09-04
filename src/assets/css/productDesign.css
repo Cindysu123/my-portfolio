@@ -55,20 +55,19 @@
     border-radius: 8px;
   }
 
-  /* Mobile version */
 @media only screen and (max-width: 768px) {
-.card {
-    flex-direction: column; /* Stack the image and text vertically */
-    align-items: center; /* Center the content */
-}
+  .card {
+      flex-direction: column;
+      align-items: center;
+  }
 
-.card-title{
-    text-align: center;
-}
+  .card-title{
+      text-align: center;
+  }
 
-.card-image {
-    width: 80vw !important; /* Make the image take up most of the viewport width */
-    max-width: none; /* Remove the max-width */
-}
+  .card-image {
+      width: 80vw !important;
+      max-width: none;
+  }
 }
   

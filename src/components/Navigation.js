@@ -44,7 +44,7 @@ const Navigation = () => {
   return (
     <nav className={`navigation ${menuOpen ? 'open' : ''}`}>
       <button className="menu-button" onClick={toggleMenu}>
-        {menuOpen ? 'X' : '☰'}  {/* Update this line */}
+        {menuOpen ? 'X' : '☰'}
       </button>
       <ul className={`navigation__list ${menuOpen ? 'open' : ''}`}>
         <li className="navigation__item">

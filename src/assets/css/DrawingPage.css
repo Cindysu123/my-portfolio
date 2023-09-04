@@ -196,10 +196,9 @@
   }
 }
 
-/* Desktop-specific styles */
 @media (min-width: 769px) {
   .close-button {
-    display: none; /* Hide close button on desktop */
+    display: none;
   }
 }
 

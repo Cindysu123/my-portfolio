@@ -119,7 +119,6 @@ body {
   border-radius: 1.4vw;
 }
 
-/* Mobile view */
 @media only screen and (max-width: 768px) {
   .homepage {
     display: flex;
@@ -145,7 +144,6 @@ body {
   }
 }
 
-/* Tablet view */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .intro {
     margin-left: 10vw;
@@ -164,7 +162,6 @@ body {
   }
 }
 
-/* Desktop view */
 @media only screen and (min-width: 1025px) {
   .intro {
     margin-left: 16vw;

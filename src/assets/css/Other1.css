@@ -312,7 +312,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;  /* To make it horizontally scrollable if content overflows */
+    overflow-x: auto;
   }
 
   .mobile-slides {
@@ -330,7 +330,6 @@
       top: 0;
     }
 
-    /* Show slides for mobile */
     .mobile-slides {
       position: relative;
       display: block;

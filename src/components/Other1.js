@@ -82,7 +82,7 @@ const Other1 = () => {
                 className={`content-image ${imagePosition}`}
                 src={productImage}
                 alt="Image"
-                style={{ position: 'absolute' }}
+                style={{ position: 'absolute', width: '30vw'}}
         />
         <div className="feature">
             <h1 className={`text header4`}>Features</h1>

@@ -1,8 +1,9 @@
 // Importing required libraries and assets
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import '../assets/css/Project1.css';
-import icon from '../assets/images/project4img/icon.png';
+
 import image1 from '../assets/images/project4img/1.png';
 import image2 from '../assets/images/project4img/4.png';
 import image3 from '../assets/images/project4img/2.png';
@@ -13,7 +14,7 @@ import analysis2 from '../assets/images/project4img/Desktop - 14.png';
 import analysis3 from '../assets/images/project4img/Desktop - 15.png';
 import users from '../assets/images/project4img/users.png';
 import wireframes from '../assets/images/project4img/wireframe.png';
-import next from '../assets/others/img2.1.png';
+import next from '../assets/others/img4.1.png';
 import left from '../assets/icon/left.png';
 import right from '../assets/icon/right.png';
 
@@ -79,12 +80,12 @@ const Project1 = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
-      if (currentScrollPosition > window.innerHeight * 6) {
+      if (currentScrollPosition > window.innerHeight * 5.8) {
         setShowNextProjectLink(true);
       } else {
         setShowNextProjectLink(false);
       }
-      if (currentScrollPosition > window.innerHeight * 5.9) {
+      if (currentScrollPosition > window.innerHeight * 5.7) {
         setBlockNextProjectLink(true);
       } else {
         setBlockNextProjectLink(false);
@@ -138,12 +139,19 @@ const Project1 = () => {
   return (
     <div className='p1'>
       <div className='bg'></div>
-      <div className="introduction">
+      <ul className='sb'>
+        <li className='sb-list'><ScrollLink to="introduction" smooth={true}>Introduction</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="problem-definition" smooth={true}>Problem Definition</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="design-process" smooth={true}>Design Process</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="final-product" smooth={true}>Final Product</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="results-impact" smooth={true}>Conclusion</ScrollLink></li>
+      </ul>
+      <div className="introduction" id="introduction">
         <h3>The process of pet adoption presents a challenge for both adopters and providers. Many individuals find that the pets they adopt do not align with their lifestyles, leading to a tragic second abandonment.</h3>
         <h4>How can we streamline pet adoption to better match pets with the right adopters, making the process more efficient and compassionate?</h4>
       </div>
 
-      <div className="problem-definition">
+      <div className="problem-definition" id="problem-definition">
         <h2>Defining the Problem</h2>
         <ul>
           <li><strong>Mismatch of Expectations:</strong> Adopters may have unrealistic expectations about the pet's behavior, needs, or compatibility with their lifestyle.</li>
@@ -153,7 +161,7 @@ const Project1 = () => {
         </ul>
       </div>
 
-      <div className="design-process">
+      <div className="design-process" id="design-process">
         <h2>Design Process</h2>
         <h3>Main Objective</h3>
         <p>The main objective is to create a seamless and efficient pet adoption system that ensures compatibility between pets and adopters. This involves understanding the needs, lifestyles, and preferences of both parties and connecting them through a thoughtful and user-friendly platform.</p>
@@ -171,7 +179,7 @@ const Project1 = () => {
         <img className='wireframe' src={wireframes} alt="wireframe"/>
       </div>
 
-      <div className="final-product">
+      <div className="final-product" id="final-product">
         <h2>Final Design</h2>
         <p>The completed design offers a comprehensive platform that showcases pets available for adoption and provides essential documents related to pet care. Additionally, it features an intuitive dashboard that helps potential adopters find the ideal pet to match their lifestyle. This is accomplished by leveraging data from PetFinder.com and guiding users through a series of questions to determine their best fit.</p>
         <a href="https://cindysu123.github.io/PawfectMatch" target="_blank">
@@ -265,16 +273,17 @@ const Project1 = () => {
           />
         </div>
       )}
-      <div className="results-impact">
+      <div className="results-impact" id="results-impact">
         <h2>Next Steps</h2>
         <p>The next phase will focus on enhancing user experience by implementing a dedicated account system, enrich the platform with more comprehensive details about the adoption process, and integrate the interactive dashboard into the website, eliminating the need for navigating to a separate web page.</p>
       </div>
       <div className='padding'></div>
       <div className={`navigate-next-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} style={{ backgroundImage: `url(${next})`, backgroundSize: 'cover', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Link to="/ui-design/2" style={{ color: 'black', textDecoration: 'none', textAlign: 'center', fontSize: '1.4vw' }}>
+        <Link to="/ui-design/4" style={{ color: 'black', textDecoration: 'none', textAlign: 'center', fontSize: '1.4vw' }}>
           <div className='text'>
-            <h3 className='link-h3'>Next Project: CampusMatch</h3>
-            <p className='link-p'>Explore the next project, where we explored ideas for making the hiring process for student more efficient.</p>
+            <h3 className='link-h3'>Next Project: Acqua Task</h3>
+            {/* <p className='link-p'>Explore the next project, where we explored ideas for making the hiring process for student more efficient.</p> */}
+            <p className='link-p'>Explore the next project, a management application that add a touch of creativity to your daily routine.</p>
           </div>
         </Link>
       </div>

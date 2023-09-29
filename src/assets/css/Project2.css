@@ -1,4 +1,4 @@
-.p2 .link-container {
+.link-container {
   transition: all 0.5s ease-in-out;
 }
 
@@ -12,20 +12,20 @@
   z-index: -1;
 }
 
-.p2 .link-container.show {
+.link-container.show {
   opacity: 1;
 }
 
-.p2 .link-container.hide {
+.link-container.hide {
   opacity: 0;
 }
 
-.p2 .link-container {
+.link-container {
   position: fixed;
   bottom: 0;
-  left: 0;
-  height: 20vh;
-  width: 100vw;
+  left: 20vw;
+  height: 22vh;
+  width: 74vw;
   align-items: center;
 }
 
@@ -38,8 +38,8 @@
 .p2 .design-process,
 .p2 .results-impact {
   display: block;
-  padding-left: 20vw;
-  padding-right: 20vw;
+  padding-left: 16vw;
+  padding-right: 16vw;
   padding-top: 4vw;
   padding-bottom: 4vw;
   line-height: 1.6;
@@ -83,43 +83,50 @@
   flex: 1;
 }
 
-.p2 .navigate-previous-project.showBlock {
+.navigate-previous-project.showBlock {
   display:block !important;
 }
 
-.p2 .navigate-previous-project.hideBlock {
+.navigate-previous-project.hideBlock {
   display:none !important;
 }
 
-.p2 .navigate-next-project.showBlock {
+.navigate-next-project.showBlock {
   display:block !important;
 }
 
-.p2 .navigate-next-project.hideBlock {
+.navigate-next-project.hideBlock {
   display:none !important;
 }
 
-.p2 .navigate-next-project,
-.p2 .navigate-previous-project {
-  width: 50vw;
+.navigate-next-project,
+.navigate-previous-project {
+  width: 37vw;
 }
 
-.p2 .navigate-next-project .text,
-.p2 .navigate-previous-project .text {
+.navigate-next-project .text,
+.navigate-previous-project .text {
   background-color: rgba(255, 255, 255, 0.8);
-  width: 44vw;
+  width: 34vw;
+  height: 16vh;
   padding: 0.6vw;
   border-radius: 10px;
   transition: all 0.3s;
 }
 
-.p2 .navigate-next-project .text:hover,
-.p2 .navigate-previous-project .text:hover {
+.navigate-next-project .text:hover,
+.navigate-previous-project .text:hover {
   transform: scale(1.04);
 }
-
+.p2 .final-product {
+  padding-left: 2vw;
+}
 .p2 .final-product h3{
   display: block;
+}
+
+.p2{
+  padding-left: 14vw;
 }
 
 

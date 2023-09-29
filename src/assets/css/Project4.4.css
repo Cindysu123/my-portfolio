@@ -1,19 +1,8 @@
-.p4 .link-container {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 20vh;
-  width: 100vw;
-  align-items: center;
-}
-
-.p4 .link-container.show {
+.p3 .link-container.show {
   opacity: 1;
 }
 
-.p4 .link-container.hide {
+.p3 .link-container.hide {
   opacity: 0;
 }
 
@@ -31,12 +20,17 @@
   background-color: #4da6ff;
 }
 
+.p4 .introduction h1,
+.p4 .introduction p{
+  color: white !important;
+}
+
 .p4 .introduction,
 .p4 .problem-definition,
 .p4 .design-process,
 .p4 .results-impact {
-  padding-left: 20vw;
-  padding-right: 20vw;
+  padding-left: 16vw;
+  padding-right: 16vw;
   padding-top: 4vw;
   padding-bottom: 4vw;
   line-height: 1.6;
@@ -68,33 +62,37 @@
   margin-bottom: 20px;
 }
 
+.p4 .final-product{
+  padding: 4vw;
+}
+
 .p4 .design-process h3 {
   margin-top: 20px;
 }
 
-.p4 .navigate-pre-project {
+.p3 .navigate-pre-project {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 20vw;
   height: 20vh;
-  width: 100vw;
+  width: 74vw;
   align-items: center;
   transition: all 0.5s ease-in-out;
 }
 
-.p4 .navigate-pre-project.show {
+.p3 .navigate-pre-project.show {
   opacity: 1;
 }
 
-.p4 .navigate-pre-project.hide {
+.p3 .navigate-pre-project.hide {
   opacity: 0;
 }
 
-.p4 .navigate-pre-project.showBlock {
+.p3 .navigate-pre-project.showBlock {
   display: block;
 }
 
-.p4 .navigate-pre-project.hideBlock {
+.p3 .navigate-pre-project.hideBlock {
   display: none;
 }
 
@@ -102,15 +100,15 @@
   background-color: #4da6ff;
 }
 
-.p4 .navigate-pre-project .text {
+.p3 .navigate-pre-project .text {
   background-color: rgba(255, 255, 255, 0.8);
-  width: 70vw;
+  width: 62vw;
   padding: 0.6vw;
   border-radius: 10px;
   transition: all 0.3s;
 }
 
-.p4 .navigate-pre-project .text:hover {
+.p3 .navigate-pre-project .text:hover {
   transform: scale(1.1);
 }
 
@@ -120,7 +118,11 @@
   padding: 0.6vw 1.2vw;
   text-align: center;
   margin: 4px 2px;
-  border-radius: 12px;
+  border-radius: 0.3vw;
   transition: all 0.3s;
   font-size: 1.2vw;
+}
+
+.p4{
+  padding-left: 14vw;
 }

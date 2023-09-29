@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import icon from '../assets/images/project6img/icon.png';
 import image1 from '../assets/images/project6img/1.png';
 import image2 from '../assets/images/project6img/2.png';
@@ -11,9 +12,12 @@ import demo from '../assets/images/project6img/demo.gif';
 import left from '../assets/icon/left.png';
 import right from '../assets/icon/right.png';
 
+import pre from '../assets/others/img1.1.png';
+import next from '../assets/others/img2.1.png';
+
 import '../assets/css/Project4.4.css';
 
-import pre from '../assets/others/img3.2.png';
+// import pre from '../assets/others/img3.2.png';
 
 const Project4 = () => {
   const images = [image1, image2, demo];
@@ -118,6 +122,11 @@ const Project4 = () => {
   return (
     <div className='p4'>
       <div className='bg'></div>
+      <ul className='sb'>
+        <li className='sb-list'><ScrollLink to="introduction" smooth={true}>Introduction</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="design-process" smooth={true}>Design Process</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="final-product" smooth={true}>Final Product</ScrollLink></li>
+      </ul>
       <div className="introduction">
         <h1>Aqua Task</h1>
         <p>Aqua Task is a management application designed to enhance productivity and add a touch of creativity to your daily routine. 
@@ -145,7 +154,7 @@ const Project4 = () => {
         <h3>Prototyping</h3>
         <div style={{alignItems: 'center'}}>
         <p>Three iterations were made to fine-tune the user interface and each iteration brought me closer to the final design.</p>
-          <img src={prototypes} alt="prototypes" style={{width: '80vw', height: 'auto'}}/>
+          <img src={prototypes} alt="prototypes" style={{width: '68vw', height: 'auto'}}/>
           <div style={{display: 'flex', alignItems: 'center', padding:'4vw'}}>
             <div>
               <img src={fishs} alt="fishs" style={{width: '40vw', marginRight:'4vw'}}/>
@@ -234,13 +243,60 @@ const Project4 = () => {
       )}
 
       <div className='padding'></div>
-      <div className={`navigate-pre-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} style={{ backgroundImage: `url(${pre})`, backgroundSize: 'cover', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Link to="/ui-design/3" style={{ color: 'black', textDecoration: 'none', textAlign: 'center', fontSize: '1.4vw' }}>
-          <div className='text'>
-            <h3 className='link-h3'>Previous Project: Sky's the Limit</h3>
-            <p className='link-p'>Explore the previous project, where I focus on empowering users to embrace sustainable practices.</p>
-          </div>
-        </Link>
+      <div className={`link-container ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}` } style={{ display: 'flex' }}>
+        <div 
+          className={`navigate-previous-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} 
+          style={{ 
+            backgroundImage: `url(${pre})`, 
+            backgroundSize: 'cover', 
+            padding: '20px',
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center'
+          }}
+        >
+          <Link 
+            to="/ui-design/1" 
+            style={{ 
+              color: 'black', 
+              textDecoration: 'none', 
+              textAlign: 'center', 
+              fontSize: '1.4vw' 
+            }}
+          >
+            <div className='text'>
+              <h3 className='link-h3'>Previous Project: Acqua Task</h3>
+              <p className='link-p'>Explore the previous project, where the process more efficient and compassionate.</p>
+            </div>
+          </Link>
+        </div>
+        <div 
+          className={`navigate-next-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} 
+          style={{ 
+            backgroundImage: `url(${next})`, 
+            backgroundSize: 'cover', 
+            padding: '20px',
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center'
+          }}
+        >
+          <Link 
+            to="/ui-design/2" 
+            style={{ 
+              color: 'black', 
+              textDecoration: 'none', 
+              textAlign: 'center', 
+              fontSize: '1.4vw' 
+            }}
+          >
+            <div className='text'>
+              <h3 className='link-h3'>Next Project: Campus Match</h3>
+              <p className='link-p'>Explore the next project, where we explored ideas for making the hiring process for student more efficient.</p>
+              {/* <p className='link-p'>Explore the next project, where we focus on empowering users to embrace sustainable practices.</p> */}
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

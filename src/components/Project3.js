@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import icon from '../assets/images/project1img/1.png';
 import image1 from '../assets/images/project1img/1.jpg';
 import image3 from '../assets/images/project1img/3.jpg';
@@ -126,6 +127,11 @@ const Project3 = () => {
   return (
     <div className="fade-in p3">
       <div className='bg'></div>
+      <ul className='sb'>
+        <li className='sb-list'><ScrollLink to="introduction" smooth={true}>Introduction</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="design-process" smooth={true}>Design Process</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="final-product" smooth={true}>Final Product</ScrollLink></li>
+      </ul>
       <div className="introduction">
         <h1>Sky's The Limit</h1>
         <p>Sky's The Limit is an innovative design challenge in which we participated as part of a hackathon competition. The initiative aims to tackle the pressing issue of climate change by empowering individuals to adopt sustainable habits. Our platform not only inspires users to engage in eco-conscious activities but also offers a marketplace for sourcing plant-based produce.</p>
@@ -227,7 +233,7 @@ const Project3 = () => {
         </div>
       )}
 
-      <div style={{width:'50vw', textAlign: 'center', padding: '10px', marginLeft:'21vw'}}>
+      <div style={{width:'50vw', textAlign: 'center', padding: '10px', marginLeft:'14vw'}}>
         <h3>Video Demonstration</h3>
         <video width="100%" controls>
           <source src={video2} type="video/mp4" />
@@ -235,59 +241,13 @@ const Project3 = () => {
         </video>
       </div>
       <div className='padding'></div>
-      <div className={`link-container ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}` } style={{ display: 'flex' }}>
-        <div 
-          className={`navigate-previous-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} 
-          style={{ 
-            backgroundImage: `url(${pre})`, 
-            backgroundSize: 'cover', 
-            padding: '20px',
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center'
-          }}
-        >
-          <Link 
-            to="/ui-design/2" 
-            style={{ 
-              color: 'black', 
-              textDecoration: 'none', 
-              textAlign: 'center', 
-              fontSize: '1.4vw' 
-            }}
-          >
-            <div className='text'>
-              <h3 className='link-h3'>Previous Project: CampusMatch</h3>
-              <p className='link-p'>Explore the next project, where we explored ideas for making the hiring process for student more efficient.</p>
-            </div>
-          </Link>
-        </div>
-        <div 
-          className={`navigate-next-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} 
-          style={{ 
-            backgroundImage: `url(${next})`, 
-            backgroundSize: 'cover', 
-            padding: '20px',
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center'
-          }}
-        >
-          <Link 
-            to="/ui-design/4" 
-            style={{ 
-              color: 'black', 
-              textDecoration: 'none', 
-              textAlign: 'center', 
-              fontSize: '1.4vw' 
-            }}
-          >
-            <div className='text'>
-              <h3 className='link-h3'>Next Project: Aqua Task</h3>
-              <p className='link-p'>Explore the next project, a management application that add a touch of creativity to your daily routine.</p>
-            </div>
-          </Link>
-        </div>
+      <div className={`navigate-pre-project ${showNextProjectLink ? 'show' : 'hide'} ${blockNextProjectLink ? 'showBlock' : 'hideBlock'}`} style={{ backgroundImage: `url(${pre})`, backgroundSize: 'cover', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Link to="/ui-design/2" style={{ color: 'black', textDecoration: 'none', textAlign: 'center', fontSize: '1.4vw' }}>
+          <div className='text'>
+            <h3 className='link-h3'>Previous Project: Campus Match</h3>
+            <p className='link-p'>Explore the previous project, where we explored ideas for making the hiring process for student more efficient.</p>
+          </div>
+        </Link>
       </div>
     </div>
   );

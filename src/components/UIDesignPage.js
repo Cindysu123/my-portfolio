@@ -30,13 +30,13 @@ const UIDesign = () => {
     let backgroundColor = '#fcf2dc';
   
     if (currentScrollPosition > window.innerHeight * 0.5) {
-      backgroundColor = '#cadbff';
+      backgroundColor = '#4b79cc';
     }
     if (currentScrollPosition > window.innerHeight * 1.4) {
-      backgroundColor = '#9fbe63';
+      backgroundColor = '#cadbff';
     }
     if (currentScrollPosition > window.innerHeight * 2.1) {
-      backgroundColor = '#4b79cc';
+      backgroundColor = '#91ec82';
     }
   
     document.body.style.backgroundColor = backgroundColor;
@@ -60,6 +60,10 @@ const UIDesign = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);  
 
   useEffect(() => {
     const cursor = document.querySelector('.cursor');
@@ -99,26 +103,26 @@ const UIDesign = () => {
           </div>
           <img className="ui-design-image" src={icon1} alt="Project 1 Icon" />
         </div>
-          <div className={`ui-design-card card2 ${scrollAmount > window.innerHeight * 0.5 & scrollAmount < window.innerHeight * 1.4 ? 'visible' : ''}`} style={{backgroundImage: `url(${img2})`}} onClick={() => handleCardClick(2)}>
+        <div className={`ui-design-card card4 ${scrollAmount > window.innerHeight * 0.5 & scrollAmount < window.innerHeight * 1.4 ? 'visible' : ''}`} style={{backgroundImage: `url(${img4})`}} onClick={() => handleCardClick(4)}>
+          <div className="ui-design-content">
+            <h3 className="ui-design-title">Aqua Task</h3>
+            <div className='Description'>A management application designed to enhance productivity and add a touch of creativity to your daily routine</div>
+          </div>
+          <img className="ui-design-image" src={icon4} alt="Project 4 Icon" />
+        </div>
+          <div className={`ui-design-card card2 ${scrollAmount > window.innerHeight * 1.4 & scrollAmount < window.innerHeight * 2.1 ? 'visible' : ''}`} style={{backgroundImage: `url(${img2})`}} onClick={() => handleCardClick(2)}>
             <div className="ui-design-content">
             <h3 className="ui-design-title">Campus Match</h3>
           <div className='Description'>A platform that connects students with employers, streamlining the job search and recruitment process.</div>
           </div>
           <img className="ui-design-image" src={icon2} alt="Project 2 Icon" />
         </div>
-        <div className={`ui-design-card card3 ${scrollAmount > window.innerHeight * 1.4 & scrollAmount < window.innerHeight * 2.1 ? 'visible' : ''}`} style={{backgroundImage: `url(${img3})`}} onClick={() => handleCardClick(3)}>
+        <div className={`ui-design-card card3 ${scrollAmount > window.innerHeight * 2.1 ? 'visible' : ''}`} style={{backgroundImage: `url(${img3})`}} onClick={() => handleCardClick(3)}>
           <div className="ui-design-content">
             <h3 className="ui-design-title">Sky's the Limit</h3>
             <div className='Description'>Encourages participation in eco-friendly activities and provides a marketplace for plant-based produce.</div>
           </div>
           <img className="ui-design-image" src={icon3} alt="Project 3 Icon" />
-        </div>
-        <div className={`ui-design-card card4 ${scrollAmount > window.innerHeight * 2.1 ? 'visible' : ''}`} style={{backgroundImage: `url(${img4})`}} onClick={() => handleCardClick(4)}>
-          <div className="ui-design-content">
-            <h3 className="ui-design-title">Aqua Task</h3>
-            <div className='Description'>A management application designed to enhance productivity and add a touch of creativity to your daily routine</div>
-          </div>
-          <img className="ui-design-image" src={icon4} alt="Project 4 Icon" />
         </div>
       </div>
       <Routes>

@@ -19,8 +19,8 @@ body, h1, h2, h3, p {
 .p1 .design-process,
 .p1 .results-impact {
   display: block;
-  padding-left: 20vw;
-  padding-right: 20vw;
+  padding-left: 16vw;
+  padding-right: 16vw;
   padding-top: 4vw;
   padding-bottom: 2vw;
   line-height: 1.6;
@@ -39,6 +39,7 @@ body, h1, h2, h3, p {
 .p1 .final-product {
   padding-left: 6vw;
   padding-right: 6vw;
+  padding-top: 4vw;
 }
 
 .p1 .design-process .users,
@@ -109,9 +110,10 @@ body, h1, h2, h3, p {
 .p1 .navigate-next-project {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 20vw;
+  padding-left: 7vw !important;
   height: 20vh;
-  width: 100vw;
+  width: 74vw;
   align-items: center;
 }
 
@@ -145,7 +147,7 @@ body, h1, h2, h3, p {
   padding: 0.6vw 1.2vw;
   text-align: center;
   margin: 4px 2px;
-  border-radius: 12px;
+  border-radius: 0.3vw;
   transition: all 0.3s;
   font-size: 1.2vw;
 }
@@ -156,7 +158,7 @@ body, h1, h2, h3, p {
 
 .p1 .navigate-next-project .text {
   background-color: rgba(255, 255, 255, 0.8);
-  width: 70vw;
+  width: 64vw;
   padding: 0.6vw;
   border-radius: 10px;
   transition: all 0.3s;
@@ -164,4 +166,45 @@ body, h1, h2, h3, p {
 
 .p1 .navigate-next-project .text:hover {
   transform: scale(1.1);
+}
+
+/* Style for the sidebar */
+.sb {
+  position: fixed;  /* Fixed position */
+  height: 100vh;  /* Full height */
+  width: 18vw;  /* Sidebar width */
+  background-color: #f3f2fa;  /* White background */
+  overflow-x: hidden;  /* Disallow horizontal scroll */
+  list-style-type: none; /* Remove list bullets */
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  padding-top: 20vh;
+}
+
+/* Style for the list items */
+.sb li {
+  text-align: left;
+}
+
+/* Style for the ScrollLink */
+.sb li a {
+  padding: 1.2vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.sb li a:hover {
+  background-color: #9491a9;
+  color: white;
+}
+
+.p1{
+  padding-left: 14vw;
 }

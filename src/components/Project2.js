@@ -1,6 +1,7 @@
 // Import dependencies and assets
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import '../assets/css/Project2.css';
 import icon from '../assets/images/project5img/icon.png';
 import image1 from '../assets/images/project5img/1.png';
@@ -12,7 +13,7 @@ import a3 from '../assets/images/project5img/analysis3.png';
 import video from '../assets/video/ProjectDemo.mp4';
 import left from '../assets/icon/left.png';
 import right from '../assets/icon/right.png';
-import pre from '../assets/others/img1.1.png';
+import pre from '../assets/others/img4.1.png';
 import next from '../assets/others/img3.2.png';
 import wireframe from '../assets/images/project5img/wireframe.png';
 
@@ -85,13 +86,13 @@ const Project2 = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
-      if (currentScrollPosition > window.innerHeight * 4.7) {
+      if (currentScrollPosition > window.innerHeight * 4.5) {
         setShowNextProjectLink(true);
       } else {
         setShowNextProjectLink(false);
       }
 
-      if (currentScrollPosition > window.innerHeight * 4.6) {
+      if (currentScrollPosition > window.innerHeight * 4.4) {
         setBlockNextProjectLink(true);
       } else {
         setBlockNextProjectLink(false);
@@ -124,7 +125,13 @@ const Project2 = () => {
   return (
     <div className='p2'>
       <div className='bg'></div>
-      <div className="introduction">
+      <ul className='sb'>
+        <li className='sb-list'><ScrollLink to="introduction" smooth={true}>Introduction</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="design-process" smooth={true}>Design Process</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="final-product" smooth={true}>Final Product</ScrollLink></li>
+        <li className='sb-list'><ScrollLink to="results-impact" smooth={true}>Conclusion</ScrollLink></li>
+      </ul>
+      <div className="introduction" id="introduction">
         <h1>Connecting Students with Employers</h1>
         <p>Embarking on a career journey can be both exciting and daunting for college students who are just starting out. With an array of choices and opportunities, the hiring process may seem complex and challenging.</p>
         <h2>Goal for This Application</h2>
@@ -132,7 +139,7 @@ const Project2 = () => {
         <h4>My Role in This Project: UI/UX Design and Front-End Development</h4>
       </div>
 
-      <div className="design-process">
+      <div className="design-process" id="design-process">
         <h2>Design Process</h2>
         <h3>Research on Current Job Applications</h3>
         <p>I conducted an analysis of both students' and employers' needs throughout the job search and recruitment process. By reviewing existing platforms, we assessed their strengths and limitations to pinpoint opportunities for innovation and improvement.</p>
@@ -157,7 +164,7 @@ const Project2 = () => {
           </div>
         </div>
       </div>
-      <div className="final-product">
+      <div className="final-product" id="final-product">
         <h2>Final Design</h2>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <img src={image1} className='small-image' alt="Image 1" style={{ width: '32%', padding: '10px', objectFit: 'contain', cursor: 'pointer' }} onClick={() => openModal(0)} />
@@ -182,7 +189,7 @@ const Project2 = () => {
         </div>
       )}
 
-      <div className="results-impact">
+    <div className="results-impact" id="results-impact">
       <h2>Conclusion</h2>
       <p>While our platform has successfully met many initial objectives, there are areas for improvement to enhance user experience. The introduction of a private messaging functionality and a networking feature would foster more personalized interactions and community-building, thereby making our platform even more robust and user-friendly.</p>
       </div>
@@ -200,7 +207,7 @@ const Project2 = () => {
           }}
         >
           <Link 
-            to="/ui-design/1" 
+            to="/ui-design/4" 
             style={{ 
               color: 'black', 
               textDecoration: 'none', 
@@ -209,8 +216,8 @@ const Project2 = () => {
             }}
           >
             <div className='text'>
-              <h3 className='link-h3'>Previous Project: PawfectMatch</h3>
-              <p className='link-p'>Explore the previous project, where the process more efficient and compassionate.</p>
+              <h3 className='link-h3'>Previous Project: Acqua Task</h3>
+              <p className='link-p'>Explore the next project, a management application that add a touch of creativity to your daily routine.</p>
             </div>
           </Link>
         </div>

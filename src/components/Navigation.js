@@ -54,19 +54,19 @@ const Navigation = () => {
         </li>
         <li className="navigation__item">
           <NavLink to="/ui-design" className="navigation__link" activeclassname="active" onClick={closeMenu}>
-            UI Design Project
+            Web Applications
           </NavLink>
         </li>
         <li className="navigation__item">
           <NavLink to="/product-design" className="navigation__link" activeclassname="active" onClick={closeMenu}>
-            Other Project
+            Other Projects
           </NavLink>
         </li>
-        <li className="navigation__item">
+        {/* <li className="navigation__item">
           <NavLink to="/drawings" className="navigation__link" activeclassname="active" onClick={closeMenu}>
             Gallery
           </NavLink>
-        </li>
+        </li> */}
         <li className="navigation__item">
           <NavLink to="/contact" className="navigation__link" activeclassname="active" onClick={closeMenu}>
             About

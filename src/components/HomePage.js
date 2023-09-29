@@ -6,7 +6,7 @@ import '../assets/css/Home.css';
 // Define HomePage component
 const HomePage = () => {
 
-  const helloText = "HELLO,";
+  const helloText = "HELLO👋,";
   const items = helloText.split('');
 
   // Configure trail animations
@@ -29,7 +29,7 @@ const HomePage = () => {
           ))}
         </div>
         <h1 className="homepage__intro">
-          I'm Cindy! I'm a designer passionate about integrating design with technology to craft impactful solutions to real-world challenges.
+        I'm Cindy! I'm a Software Engineer who thrives on blending design principles and technological innovation to address practical problems.
         </h1>
       </div>
     </div>

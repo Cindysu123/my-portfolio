@@ -47,12 +47,16 @@ const ContactPage = () => {
     };
   
     const button = document.querySelector('.downloadButton');
+    const contact = document.querySelector('.contactItem');
 
     button.addEventListener('mouseenter', handleHover);
     button.addEventListener('mouseleave', handleUnhover);
+    contact.addEventListener('mouseenter', handleHover);
+    contact.addEventListener('mouseleave', handleUnhover);
 
     return () => {
-
+      contact.addEventListener('mouseenter', handleHover);
+      contact.addEventListener('mouseleave', handleUnhover);
       button.addEventListener('mouseenter', handleHover);
       button.addEventListener('mouseleave', handleUnhover);
     };
@@ -88,12 +92,21 @@ const ContactPage = () => {
         <div className='text'>
           {/* Introduction text */}
           <p>Hello and welcome!✨</p> 
-          <p>I'm Cindy, a designer who thrives on turning abstract concepts into concrete, functional works of art. Utilizing the latest technology, I specialize in crafting designs that captivate the eye while prioritizing user experience.  Let's embark on a creative journey together and build something amazing!</p>
+          <p>I'm Cindy, a Software Engineer focused on transforming high-level ideas into practical, visually engaging applications. Leveraging cutting-edge technology, I excel in creating applications that not only looks great but also delivers an exceptional user experience. Let's collaborate and create something extraordinary!</p>
           <div className="downloadContainer">
             <div className="downloadItem">
               <a href={pdfLink} target="_blank" rel="noopener noreferrer" className="downloadButton">View My Resume</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Contact information */}
+      <div className="contactContainer">
+        <div>Contact Info:</div>
+        <div className="contactItem">
+          <img src={phoneIcon} alt="Email" className="icon" />
+          <a href="mailto:cindy_su_123@outlook.com" className="contactText">cindysu2@illinois.edu</a>
         </div>
       </div>
 
@@ -110,9 +123,9 @@ const ContactPage = () => {
             </button>
             {activeSubSection === 'design' && (
               <ul className='skill_list'>
-                <li><img src={figma} alt="Figma" /> Figma</li>
-                <li><img src={ps} alt="Adobe Photoshop" /> Adobe Photoshop</li>
-                <li><img src={ai} alt="Adobe Illustrator" /> Adobe Illustrator</li>
+                <li><img src={figma} alt="Figma" />Figma</li>
+                <li><img src={ps} alt="Adobe Photoshop" />Photoshop</li>
+                <li><img src={ai} alt="Adobe Illustrator" />Illustrator</li>
               </ul>
             )}
             <button
@@ -138,13 +151,13 @@ const ContactPage = () => {
             </button>
             {activeSubSection === 'coding' && (
             <ul className='skill_list'>
+              <li><img className="skill-icon" src={python} alt="Python" /> Python</li>
+              <li><img className="skill-icon" src={java} alt="Java" /> Java</li>
+              <li><img className="skill-icon" src={cpp} alt="C++" /> C++</li>
               <li><img className="skill-icon" src={js} alt="JavaScript" /> JavaScript</li>
               <li><img className="skill-icon" src={html} alt="HTML/CSS" /> HTML/CSS</li>
               <li><img className="skill-icon" src={sql} alt="MySQL" /> MySQL</li>
               <li><img className="skill-icon" src={mongo} alt="MongoDB" /> MongoDB</li>
-              <li><img className="skill-icon" src={python} alt="Python" /> Python</li>
-              <li><img className="skill-icon" src={java} alt="Java" /> Java</li>
-              <li><img className="skill-icon" src={cpp} alt="C++" /> C++</li>
             </ul>
           )}
         </div>
@@ -155,8 +168,8 @@ const ContactPage = () => {
           {activeSection === 'design' && (
             <ul className={`homepage__subskills ${showSubSkills ? 'active' : ''}`}>
               <li><img src={figma} alt="Figma" /> Figma</li>
-              <li><img src={ps} alt="Adobe Photoshop" /> Adobe Photoshop</li>
-              <li><img src={ai} alt="Adobe Illustrator" /> Adobe Illustrator</li>
+              <li><img src={ps} alt="Adobe Photoshop" />Photoshop</li>
+              <li><img src={ai} alt="Adobe Illustrator" />Illustrator</li>
             </ul>
           )}
           {/* Modeling subskills */}
@@ -169,23 +182,15 @@ const ContactPage = () => {
           {/* Coding subskills */}
           {activeSection === 'coding' && (
             <ul className={`homepage__subskills ${showSubSkills ? 'active' : ''}`}>
+              <li><img className="skill-icon" src={python} alt="Python" /> Python</li>
+              <li><img className="skill-icon" src={java} alt="Java" /> Java</li>
+              <li><img className="skill-icon" src={cpp} alt="C++" /> C++</li>
               <li><img className="skill-icon" src={js} alt="JavaScript" /> JavaScript</li>
               <li><img className="skill-icon" src={html} alt="HTML/CSS" /> HTML/CSS</li>
               <li><img className="skill-icon" src={sql} alt="MySQL" /> MySQL</li>
               <li><img className="skill-icon" src={mongo} alt="MongoDB" /> MongoDB</li>
-              <li><img className="skill-icon" src={python} alt="Python" /> Python</li>
-              <li><img className="skill-icon" src={java} alt="Java" /> Java</li>
-              <li><img className="skill-icon" src={cpp} alt="C++" /> C++</li>
             </ul>
           )}
-        </div>
-      {/* Contact information */}
-        <div className="contactContainer">
-          <div>Contact Info:</div>
-          <div className="contactItem">
-            <img src={phoneIcon} alt="Email" className="icon" />
-            <a href="mailto:cindy_su_123@outlook.com" className="contactText">cindy_su_123@outlook.com</a>
-          </div>
         </div>
       {/* Padding for layout */}
       <div className='padding'></div>

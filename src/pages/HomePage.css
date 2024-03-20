@@ -1,0 +1,111 @@
+.home_container{
+    padding: 5vw;
+}
+
+.home_container .section1{
+    padding: 3vw;
+}
+
+.home_container .section1 .left .text{
+    position: absolute;
+    z-index: 2;
+    top: 10vw;
+    left: 18vw;
+}
+
+.home_container .section1 .left .speech_bubble{
+    width: 50vw;
+    position: absolute;
+    top: 7vw;
+    left: 15vw;
+    z-index: -1;
+}
+
+.section2 .project{
+    width: 60vw;
+    height: 78vh;
+    position: absolute;
+    top: 56vw;
+    left: 34vw;
+}
+
+.project1 a p {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    width: 93.5%;
+    height: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateY(18vh);
+    opacity: 0;
+    border-radius: 1vw;
+  }
+  
+  .project1 a:hover p {
+    transform: translateY(5vh);
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+  }
+  
+  .project2 a p {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    width: 100%;
+    height: 107%;
+    padding: 2vw;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateY(18vh);
+    border-radius: 1vw;
+    opacity: 0;
+  }
+  
+  .project2 a:hover p {
+    transform: translateY(11vh);
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+  }
+  
+  .project3 a p {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    width: 100%;
+    height: 111%;
+    padding: 2vw;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateY(18vh);
+    border-radius: 1vw;
+    opacity: 0;
+  }
+  
+  .project3 a:hover p {
+    transform: translateY(14vh);
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+  }
+
+  .prject4, .project5{
+    transition: all 0.3s;
+  }
+  .prject4:hover, .project5:hover{
+    transform: scale(1.05);
+  }
